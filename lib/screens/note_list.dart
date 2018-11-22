@@ -1,17 +1,29 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:notekeeper/models/note.dart';
+import 'package:notekeeper/utils/database_helper.dart';
 import 'package:notekeeper/screens/note_detail.dart';
+import 'package:sqflite/sqflite.dart';
 
 class NoteList extends StatefulWidget {
+
   @override
   _NoteListState createState() => _NoteListState();
 }
 
 class _NoteListState extends State<NoteList> {
 
+  DatabaseHelper databaseHelper = DatabaseHelper();
+  List<Note> noteList;
   int count = 0;
 
   @override
   Widget build(BuildContext context) {
+
+    if(noteList == null) {
+      noteList = List<Note>();
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Notes'),
