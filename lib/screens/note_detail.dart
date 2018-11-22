@@ -6,22 +6,24 @@ import 'package:intl/intl.dart';
 
 class NoteDetail extends StatefulWidget {
 
-  String appBarTitle;
+  final String appBarTitle;
+  final Note note;
 
-  NoteDetail(this.appBarTitle);
+  NoteDetail(this.note, this.appBarTitle);
 
   @override
-  NoteDetailState createState() => NoteDetailState(this.appBarTitle);
+  NoteDetailState createState() => NoteDetailState(this.note, this.appBarTitle);
 }
 
 class NoteDetailState extends State<NoteDetail> {
 
   static var _priorities = ['Hight', 'Low'];
   String appBarTitle;
+  Note note;
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
-  NoteDetailState(this.appBarTitle);
+  NoteDetailState(this.note, this.appBarTitle);
 
   @override
   Widget build(BuildContext context) {
