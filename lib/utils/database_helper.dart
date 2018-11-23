@@ -46,8 +46,8 @@ class DatabaseHelper {
   }
 
   void _createDb(Database db, int newVersion) async {
-    await db.execute('CREATE TABLE $noteTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitle TEXT, '
-                      '$colDescription TEXT, $colPriority INTEGER, $colDate TEXT');
+    String sql = 'CREATE TABLE $noteTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitle TEXT, $colDescription TEXT, $colPriority INTEGER, $colDate TEXT)';
+    await db.execute(sql);
   }
 
   // Fetch Operation: Get all note objects from database
